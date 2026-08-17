@@ -1,0 +1,24 @@
+{
+  "name": "healthapp",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "calculateBmi": "tsc && node bmiCalculator.ts",
+    "calculateExercises": "tsc && node exerciseCalculator.ts",
+    "start": "node index.ts",
+    "dev": "concurrently \"tsc --watch\" \"node --watch index.ts\" "
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "concurrently": "^10.0.5",
+    "express": "^5.2.1"
+  }
+}
