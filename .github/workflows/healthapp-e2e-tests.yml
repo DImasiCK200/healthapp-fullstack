@@ -19,7 +19,7 @@ jobs:
 
       - name: Install healthapp dependencies
         working-directory: ./healthapp
-        run: npm ci
+        run: npm install
 
       - name: Lint healthapp
         working-directory: ./healthapp
