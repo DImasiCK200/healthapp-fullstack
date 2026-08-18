@@ -43,7 +43,7 @@ const calculateRating = (value: number, target: number): Rating => {
   }
 };
 
-const calculateExercises = (
+export const calculateExercises = (
   dailyExsHours: Array<number>,
   target: number,
 ): Result => {
@@ -80,16 +80,18 @@ const parseArgsEx = (args: Array<string>): ValuesToCalculateEx => {
   };
 };
 
-try {
-  const { target, timeArray } = parseArgsEx(process.argv);
+if (process.argv[1] === import.meta.filename) {
+  try {
+    const { target, timeArray } = parseArgsEx(process.argv);
 
-  console.log(calculateExercises(timeArray, target));
-} catch (error: unknown) {
-  let errorMessage = "Something bad happened.";
+    console.log(calculateExercises(timeArray, target));
+  } catch (error: unknown) {
+    let errorMessage = "Something bad happened.";
 
-  if (error instanceof Error) {
-    errorMessage += " Error: " + error.message;
+    if (error instanceof Error) {
+      errorMessage += " Error: " + error.message;
+    }
+
+    console.log(errorMessage);
   }
-
-  console.log(errorMessage);
 }
